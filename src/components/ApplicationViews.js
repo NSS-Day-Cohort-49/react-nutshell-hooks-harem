@@ -1,5 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { TaskList } from "./tasks/TaskList"
+import { TaskProvider } from "./tasks/TaskProvider"
 
 export const ApplicationViews = () => {
   return (
@@ -14,9 +16,12 @@ export const ApplicationViews = () => {
       <Route path="/messages">
         {/* Render the component for the messages */}
       </Route>
-      <Route path="/tasks">
-        {/* Render the component for the user's tasks */}
-      </Route>
+      <TaskProvider>
+        <Route path="/tasks">
+          {/* Render the component for the user's tasks */}
+          <TaskList></TaskList>
+        </Route>
+      </TaskProvider>
       <Route path="/events">
         {/* Render the component for the user's events */}
       </Route>
