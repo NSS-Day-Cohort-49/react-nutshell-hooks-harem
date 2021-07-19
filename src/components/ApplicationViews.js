@@ -4,6 +4,9 @@ import { EventList } from "./Events/EventList"
 import { EventProvider } from "./Events/EventProvider"
 import { EventForm } from "./Events/EventForm"
 import { EventDetail } from "./Events/EventDetail"
+import { FriendProvider } from "./Friends/FriendProvider"
+import { FriendList } from "./Friends/FriendList"
+import { FriendForm } from "./Friends/FriendForm"
 
 export const ApplicationViews = () => {
   return (
@@ -12,10 +15,15 @@ export const ApplicationViews = () => {
       <Route exact path="/">
         {/* Render the component for news articles */}
       </Route>
+    <FriendProvider>
       <Route exact path="/friends">
-        {/* Render the component for list of friends */}
+        <FriendList />
       </Route>
-      <Route exact path="/messages">
+      <Route path="/friends/create">
+        <FriendForm />
+      </Route>
+    </FriendProvider>
+      <Route path="/messages">
         {/* Render the component for the messages */}
       </Route>
       <Route exact path="/tasks">
