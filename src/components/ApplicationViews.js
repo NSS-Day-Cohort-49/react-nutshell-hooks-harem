@@ -4,10 +4,13 @@ import { ArticleProvider } from "./Articles/ArticleProvider"
 import { ArticleList } from "./Articles/ArticleList"
 import { ArticleForm } from "./Articles/ArticleForm"
 import { ArticleDetail } from "./Articles/ArticleDetail"
+import { FriendProvider } from "./Friends/FriendProvider"
+import { FriendList } from "./Friends/FriendList"
+import { FriendForm } from "./Friends/FriendForm"
 
 export const ApplicationViews = () => {
   return (
-    <>
+  <>
       <ArticleProvider>
       <Route exact path="/">
         <ArticleList />
@@ -21,9 +24,17 @@ export const ApplicationViews = () => {
           </Route>
       </ArticleProvider>
 
-      <Route path="/friends">
-        {/* Render the component for list of friends */}
+      {/* <Route path="/friends">
+        Render the component for list of friends */}
+    <FriendProvider>
+      <Route exact path="/friends">
+        <FriendList />
       </Route>
+      <Route path="/friends/create">
+        <FriendForm />
+      </Route>
+    </FriendProvider>
+    
       <Route path="/messages">
         {/* Render the component for the messages */}
       </Route>
