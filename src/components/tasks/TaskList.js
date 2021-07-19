@@ -26,19 +26,12 @@ export const TaskList = () => {
         </button>
 
         <div className="tasks">
-          {
-          tasks.map(task => {
-            return <TaskCard key={task.id} task={task} />
-          })
-          }
+          {tasks.map((task) => {
+            return (<TaskCard key={task.id} task={task} />
+          );
+        })}
         </div>
   </>
-    )}
+    );
+  }
 
-{/* <div className="articles">
-          {
-            articles.map(article => {
-              return <ArticleCard key={article.id} article={article} />
-            })
-          }
-        </div> */}
