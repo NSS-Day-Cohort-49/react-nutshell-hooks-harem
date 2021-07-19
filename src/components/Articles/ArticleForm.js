@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 export const ArticleForm = () => {
   const { addArticle } = useContext(ArticleContext)
-
+  const history = useHistory()
   /*
   With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
   Define the intial state of the form inputs with useState()
@@ -15,10 +15,11 @@ export const ArticleForm = () => {
     title: "",
     synopsis: "",
     url: "",
-  });
+    userId: 0,
+    timestamp: 0
+  })
 
-  const history = useHistory();
-
+ 
   /*
   Reach out to the world and get customers state
   and locations state on initialization.
@@ -44,44 +45,46 @@ export const ArticleForm = () => {
   const handleClickSaveArticle = (event) => {
     event.preventDefault() //Prevents the browser from submitting the form
 
-    const locationId = parseInt(article.locationId)
-    const customerId = parseInt(article.customerId)
+    const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
+    // const customerId = parseInt(article.customerId)
 
-    if (locationId === 0 || customerId === 0) {
-      window.alert("Please select a location and a customer")
-    } else {
+    // if (locationId === 0 || customerId === 0) {
+    //   window.alert("Please select a location and a customer")
+    // } else {
       //Invoke addArticle passing the new article object as an argument
       //Once complete, change the url and display the article list
 
       const newArticle = {
-        url: article.url,
         title: article.title,
-        synopsis: article.synopsis 
+        synopsis: article.synopsis,
+        url: article.url,
+        userId: currentUserId,
+        timestamp: Date.now() 
       //   customerId: customerId
       }
       addArticle(newArticle)
         .then(() => history.push("/articles"))
     }
-  }
+  
 
   return (
     <form className="articleForm">
       <h2 className="articleForm__title">New Article</h2>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="name">Article title:</label>
-          <input type="text" id="name" required autoFocus className="form-control" placeholder="Article title" value={article.title} onChange={handleControlledInputChange} />
+          <label htmlFor="title">Article title:</label>
+          <input type="text" id="title" required autoFocus className="form-control" placeholder="Article title" value={article.title} onChange={handleControlledInputChange} />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="name">Article synopsis:</label>
+          <label htmlFor="synopsis">Article synopsis:</label>
           <input type="text" id="synopsis" required autoFocus className="form-control" placeholder="Article synopsis" value={article.synopsis} onChange={handleControlledInputChange} />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="name">Article url:</label>
+          <label htmlFor="url">Article url:</label>
           <input type="text" id="url" required autoFocus className="form-control" placeholder="Article url" value={article.url} onChange={handleControlledInputChange} />
         </div>
       </fieldset>
