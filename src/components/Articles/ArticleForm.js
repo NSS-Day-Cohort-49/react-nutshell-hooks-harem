@@ -1,14 +1,10 @@
 import React, { useContext, useEffect, useState } from "react"
-// import { LocationContext } from "../LocationsProvider"
 import { ArticleContext } from "./ArticleProvider"
-// import { CustomerContext } from "../CustomersProvider"
 import "./Article.css"
 import { useHistory } from 'react-router-dom';
 
 export const ArticleForm = () => {
   const { addArticle } = useContext(ArticleContext)
-//   const { locations, getLocations } = useContext(LocationContext)
-//   const { customers, getCustomers } = useContext(CustomerContext)
 
   /*
   With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
