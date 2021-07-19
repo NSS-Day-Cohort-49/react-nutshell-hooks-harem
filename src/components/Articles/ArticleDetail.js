@@ -20,11 +20,11 @@ export const ArticleDetail = () => {
 
   return (
     <section className="article">
-      <h3 className="article__name">{article.name}</h3>
-      <div className="article__breed">{article.breed}</div>
+      <h3 className="article__title">{article.title}</h3>
+      <div className="article__synopsis">{article.synopsis}</div>
       {/* What's up with the question mark???? See below.*/}
-      <div className="article__location">Location: {article.location?.name}</div>
-      <div className="article__owner">Customer: {article.customer?.name}</div>
+      <div className="article__url">Url: {article.url?.title}</div>
+      {/* <div className="article__owner">Customer: {article.customer?.name}</div> */}
     </section>
   )
 }

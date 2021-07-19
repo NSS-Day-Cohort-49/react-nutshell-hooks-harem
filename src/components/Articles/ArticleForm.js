@@ -16,10 +16,9 @@ export const ArticleForm = () => {
   */
 
   const [article, setArticle] = useState({
-    name: "",
-    breed: "",
-    locationId: 0,
-    customerId: 0
+    title: "",
+    synopsis: "",
+    url: "",
   });
 
   const history = useHistory();
@@ -38,7 +37,7 @@ export const ArticleForm = () => {
     /* When changing a state object or array,
     always create a copy, make changes, and then set state.*/
     const newArticle = { ...article }
-    /* Animal is an object with properties.
+    /* Article is an object with properties.
     Set the property to the new value
     using object bracket notation. */
     newArticle[event.target.id] = event.target.value
@@ -55,13 +54,13 @@ export const ArticleForm = () => {
     if (locationId === 0 || customerId === 0) {
       window.alert("Please select a location and a customer")
     } else {
-      //Invoke addAnimal passing the new animal object as an argument
-      //Once complete, change the url and display the animal list
+      //Invoke addArticle passing the new article object as an argument
+      //Once complete, change the url and display the article list
 
       const newArticle = {
+        url: article.url,
         title: article.title,
-        Synopsis: article.synopsis,
-        url: article.url, 
+        synopsis: article.synopsis 
       //   customerId: customerId
       }
       addArticle(newArticle)
@@ -74,42 +73,23 @@ export const ArticleForm = () => {
       <h2 className="articleForm__title">New Article</h2>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="name">Article name:</label>
-          <input type="text" id="name" required autoFocus className="form-control" placeholder="Article name" value={article.name} onChange={handleControlledInputChange} />
+          <label htmlFor="name">Article title:</label>
+          <input type="text" id="name" required autoFocus className="form-control" placeholder="Article title" value={article.title} onChange={handleControlledInputChange} />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="name">Article breed:</label>
-          <input type="text" id="breed" required autoFocus className="form-control" placeholder="Article breed" value={article.breed} onChange={handleControlledInputChange} />
-        </div>
-      </fieldset>
-      <fieldset>
-        {/* <div className="form-group">
-          <label htmlFor="location">Assign to location: </label>
-          <select name="locationId" id="locationId" className="form-control" value={article.locationId} onChange={handleControlledInputChange}>
-            <option value="0">Select a location</option>
-            {locations.map(l => (
-              <option key={l.id} value={l.id}>
-                {l.name}
-              </option>
-            ))}
-          </select>
+          <label htmlFor="name">Article synopsis:</label>
+          <input type="text" id="synopsis" required autoFocus className="form-control" placeholder="Article synopsis" value={article.synopsis} onChange={handleControlledInputChange} />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="customerId">Customer: </label>
-          <select name="customer" id="customerId" className="form-control" value={article.customerId} onChange={handleControlledInputChange}>
-            <option value="0">Select a customer</option>
-            {customers.map(c => (
-              <option key={c.id} value={c.id}>
-                {c.name}
-              </option>
-            ))}
-          </select>
-        </div> */}
+          <label htmlFor="name">Article url:</label>
+          <input type="text" id="url" required autoFocus className="form-control" placeholder="Article url" value={article.url} onChange={handleControlledInputChange} />
+        </div>
       </fieldset>
+
       <button className="btn btn-primary" onClick={handleClickSaveArticle}>
         Save Article
           </button>
@@ -235,15 +215,3 @@ export const ArticleForm = () => {
 //     </form>
 //   )
 // }
-// © 2021 GitHub, Inc.
-// Terms
-// Privacy
-// Security
-// Status
-// Docs
-// Contact GitHub
-// Pricing
-// API
-// Training
-// Blog
-// About

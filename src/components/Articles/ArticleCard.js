@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 export const ArticleCard = ({ article }) => (
     <section className="articles">
         <h3 className="article">
-          <Link to={`/article/detail/${article.id}`}>
+          <Link to={`/article/url/${article.id}`}>
             { article.title }
           </Link>
         </h3>
