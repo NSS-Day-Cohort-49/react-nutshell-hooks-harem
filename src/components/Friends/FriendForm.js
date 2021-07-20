@@ -15,11 +15,11 @@ export const FriendForm = () => {
   Define the intial state of the form inputs with useState()
   */
 
-  const [friends, setFriend] = useState({
+  const [friend, setFriend] = useState({
     name: "",
     email: "",
     eventId: 0,
-    ArticleId: 0
+    articleId: 0
   });
 
   const history = useHistory();
@@ -46,7 +46,7 @@ export const FriendForm = () => {
     setFriend(newFriend)
   }
 
-  const handleClickSaveAnimal = (event) => {
+  const handleClickSaveFriend = (event) => {
     event.preventDefault() //Prevents the browser from submitting the form
 
     // const articleId = parseInt(friend.articleId)
@@ -61,8 +61,8 @@ export const FriendForm = () => {
       const newFriend = {
         name: friend.user.name,
         email: friend.user.email,
-        articleId: articleId,
-        eventId: eventId
+        articleId: articles.Id,
+        eventId: events.Id
       }
       addFriend(newFriend)
         .then(() => history.push("/friends"))
@@ -75,7 +75,7 @@ export const FriendForm = () => {
       <fieldset>
         <div className="form-group">
           <label htmlFor="name">Friend Name:</label>
-          <input type="text" id="name" required autoFocus className="form-control" placeholder="Friend name" value={animal.name} onChange={handleControlledInputChange} />
+          <input type="text" id="name" required autoFocus className="form-control" placeholder="Friend name" value={friend.name} onChange={handleControlledInputChange} />
         </div>
       </fieldset>
       <button className="btn btn-primary" onClick={handleClickSaveFriend}>

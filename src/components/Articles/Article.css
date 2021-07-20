@@ -11,7 +11,11 @@
       border: 1px solid goldenrod;
   }
 
-
+  .article__synopsis {
+      flex-basis: 250%;
+      margin: 1em;
+      padding: 1em;
+  }
  /* .miniMode {
     padding: 1rem;
     margin: 0 25%;
