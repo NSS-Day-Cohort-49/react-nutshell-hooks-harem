@@ -61,8 +61,8 @@ export const FriendForm = () => {
       const newFriend = {
         name: friend.user.name,
         email: friend.user.email,
-        articleId: articles.Id,
-        eventId: events.Id
+        articleId: friend.articleId,
+        eventId: friend.eventId
       }
       addFriend(newFriend)
         .then(() => history.push("/friends"))
