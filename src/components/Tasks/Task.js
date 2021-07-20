@@ -1,3 +1,5 @@
+//Author: Ian James II
+//Purpose of Module: To make a card that will show the different properties coming from tasks.
 import React from "react"
 import "./Task.css"
 export const TaskCard = ({ task }) => (

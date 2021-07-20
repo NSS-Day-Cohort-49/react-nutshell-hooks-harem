@@ -1,7 +1,10 @@
+//Author: Ian James II
+//Purpose of Module: To create a form that can be filled out by a user to submit a new task into our db.
 import React, { useContext, useState } from "react"
-import { TaskContext } from "../tasks/TaskProvider"
+import { TaskContext } from "../Tasks/TaskProvider"
 import "./Task.css"
 import { useHistory } from 'react-router-dom';
+
 export const TaskForm = () => {
   const { addTask } = useContext(TaskContext)
   const [task, setTask] = useState({

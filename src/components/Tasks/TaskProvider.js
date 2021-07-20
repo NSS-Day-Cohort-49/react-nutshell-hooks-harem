@@ -1,3 +1,5 @@
+//Author: Ian James II
+//Purpose of Module: To make a component that will render information from the db.
 import React, { useState, createContext } from "react"
 // The context is imported and used by individual components that need data
 export const TaskContext = createContext()

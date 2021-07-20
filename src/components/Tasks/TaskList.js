@@ -1,6 +1,8 @@
+//Author: Ian James II
+//Purpose of Module: To show all of the tasks as a list in the browser that are stored in the db.
 import React, { useContext, useEffect } from "react";
 import { TaskContext } from "./TaskProvider";
-import { TaskCard } from "./TaskCard";
+import { TaskCard } from "./Task";
 import { useHistory } from 'react-router-dom';
 import "./Task.css";
 export const TaskList = () => {
