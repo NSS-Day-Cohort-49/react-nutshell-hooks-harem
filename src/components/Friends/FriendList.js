@@ -1,4 +1,5 @@
 //author:JStewart / PROVIDES??
+import { useHistory } from 'react-router-dom'
 import React, { useContext, useEffect } from "react"
 import { FriendContext } from "../Friends/FriendProvider"
 import { FriendCard } from "./Friends"
@@ -11,7 +12,7 @@ export const FriendList = () => {
     const { friends, getFriends } = useContext(FriendContext)
     // const { users, getUsers} = useContext(UserContext)
     // const [ filteredFriends, setFiltered ] = useState([])
-    // const history = useHistory()
+    const history = useHistory()
     
    
     useEffect(() => {
@@ -31,14 +32,17 @@ export const FriendList = () => {
 return (
   <>
     <h1>Friends</h1>
-    {/* <button onClick={() => history.push("/friends/create")}> Add Friend 
-    </button> */}
+    <button onClick={() => history.push("/friends/create")}> Add Friend 
+    </button>
     <div className="friends">
     {console.log("FriendList: Render", friends)}
     {
       friends.map(friend => {
         // const user = users.find(u => u.id === userId)
-        return <FriendCard key={friend.id} friend={friend} />
+        return <FriendCard 
+          key={friend.id} 
+          friend={friend}
+          />
       })
     }
     </div>

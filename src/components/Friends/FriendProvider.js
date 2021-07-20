@@ -9,14 +9,14 @@ export const FriendProvider = (props) => {
     // searchTerms function to be referenced later?
 
     const getFriends = () => {
-        return fetch("http://localhost:8088/friends?_expand=users")
-        .then(res => res.json())
-        .then(setFriends)
+        return fetch("http://localhost:8088/friends?_expand=user")
+          .then((res) => res.json())
+          .then(setFriends);
     }
 
 
     const addFriend = friendObj => {
-        return fetch("http://localhost:8088/friends", {
+        return fetch("http://localhost:8088/friends?_expand=user", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -26,30 +26,30 @@ export const FriendProvider = (props) => {
         .then(getFriends)
     }
 
-    // const getFriendById = (id) => {
-    //     return fetch(`http://localhost:8088/friends/${id}?_expand=users`)
-    //     .then(res => res.json())
-    // }
+    const getFriendById = (id) => {
+        return fetch(`http://localhost:8088/friends/${id}?_expand=users`)
+        .then(res => res.json())
+    }
 
-    // const updateFriend = friend => {
-    //     return fetch (`http://localhost:8088/friends/${friend.id}`, {
-    //         method: "PUT",
-    //         headers: {"Content-Type": "application/json"},
-    //         body: JSON.stringify(friend)
-    //     })
-    //     .then(getFriends)
-    // }
+    const updateFriend = friend => {
+        return fetch (`http://localhost:8088/friends/${friend.id}`, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(friend)
+        })
+        .then(getFriends)
+    }
 
-    // const removeFriend = friendId => {
-    //     return fetch(`http://localhost:8088/friends/${friendId}`, {
-    //         method: "DELETE"
-    //     })
-    //     .then(getFriends)
- 
+    const removeFriend = friendId => {
+        return fetch(`http://localhost:8088/friends/${friendId}`, {
+            method: "DELETE"
+        })
+        .then(getFriends)
+    }
 
     return (
         <FriendContext.Provider value={{
-            friends, getFriends, addFriend 
+            friends, getFriends, addFriend, getFriendById, updateFriend, removeFriend
         }}>
             {props.children}
         </FriendContext.Provider>
