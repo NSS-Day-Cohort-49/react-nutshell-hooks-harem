@@ -11,6 +11,7 @@ import { EventDetail } from "./Events/EventDetail"
 import { FriendProvider } from "./Friends/FriendProvider"
 import { FriendList } from "./Friends/FriendList"
 import { FriendForm } from "./Friends/FriendForm"
+import { UserProvider } from "./Users/UserProvider"
 
 export const ApplicationViews = () => {
   return (
@@ -32,12 +33,14 @@ export const ApplicationViews = () => {
       {/* <Route path="/friends">
         Render the component for list of friends */}
     <FriendProvider>
-      <Route exact path="/friends">
-        <FriendList />
-      </Route>
-      <Route path="/friends/create">
-        <FriendForm />
-      </Route>
+      <UserProvider>
+        <Route exact path="/friends">
+          <FriendList />
+        </Route>
+        {/* <Route path="/friends/create">
+          <FriendForm />
+        </Route> */}
+      </UserProvider>
     </FriendProvider>
     
       <Route path="/messages">

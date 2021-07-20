@@ -1,44 +1,43 @@
 //author:JStewart / PROVIDES??
 import React, { useContext, useEffect } from "react"
-import { useHistory } from "react-router-dom"
 import { FriendContext } from "../Friends/FriendProvider"
-import "./Friends.css"
 import { FriendCard } from "./Friends"
+// import { UserContext } from "./Users/UserProvider"
+import "./Friends.css"
 
-//Will need to add 'searchTerms' following 'getFriends' below later
+
 
 export const FriendList = () => {
     const { friends, getFriends } = useContext(FriendContext)
-    // const [filteredFriends, setFiltered] = useState([])
-    const history = useHistory()
+    // const { users, getUsers} = useContext(UserContext)
+    // const [ filteredFriends, setFiltered ] = useState([])
+    // const history = useHistory()
+    
+   
     useEffect(() => {
-        console.log("FriendList: Initial render before data")
+        
         getFriends()
     }, [])
 
-// // useEffect dependency array with dependencies - will run if dependency changes (state)
-// // searchTerms will cause a change
-//   useEffect(() => {
-//   if (searchTerms !== "") {
-//     // If the search field is not blank, display matching animals
-//     const subset = users.filter(user => user.name.toLowerCase().includes(searchTerms))
-//     setFiltered(subset)
-//   } else {
-//     // If the search field is blank, display all users
-//     setFiltered(users)
-//   }
-// }, [searchTerms, users]) 
+    // useEffect(() => {
+    //   if (searchTerms !== "") {
+    //     const subset = friends.filter(friend => friend.name.toLowerCase().includes (searchTerms))
+    //     setFiltered(subset)
+    //   } else {
+    //     setFiltered(friends)
+    //   }
+    //  }, [searchTerms, friends])
 
 return (
   <>
     <h1>Friends</h1>
-
-    <button onClick={() => history.push("/friends/create")}>
-        Add as Friend
-    </button>
+    {/* <button onClick={() => history.push("/friends/create")}> Add Friend 
+    </button> */}
     <div className="friends">
+    {console.log("FriendList: Render", friends)}
     {
       friends.map(friend => {
+        // const user = users.find(u => u.id === userId)
         return <FriendCard key={friend.id} friend={friend} />
       })
     }
