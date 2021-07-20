@@ -12,6 +12,9 @@ import { FriendProvider } from "./Friends/FriendProvider"
 import { FriendList } from "./Friends/FriendList"
 import { FriendForm } from "./Friends/FriendForm"
 import { UserProvider } from "./Users/UserProvider"
+import { TaskList } from "./Tasks/TaskList"
+import { TaskProvider } from "./Tasks/TaskProvider"
+import { TaskForm } from "./Tasks/TaskForm"
 
 export const ApplicationViews = () => {
   return (
@@ -29,6 +32,15 @@ export const ApplicationViews = () => {
         <Route exact path="/articles/detail/:articleId(\d+)">
           <ArticleDetail />
           </Route>
+
+      <TaskProvider>
+        <Route exact path="/tasks">
+          <TaskList />
+        </Route>
+        <Route path="/tasks_add">
+          <TaskForm></TaskForm>
+        </Route>
+      </TaskProvider>
 
       {/* <Route path="/friends">
         Render the component for list of friends */}
