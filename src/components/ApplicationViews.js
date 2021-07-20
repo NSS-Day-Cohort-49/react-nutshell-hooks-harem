@@ -21,16 +21,16 @@ export const ApplicationViews = () => {
       <EventProvider>
       <ArticleProvider>
        
-      <Route exact path="/">
+      <Route exact path="/articles">
         <ArticleList />
         {/* Render the component for news articles */}
       </Route>
       <Route exact path="/articles/create">
         <ArticleForm />
         </Route>
-        <Route exact path="/articles/detail/:articleId(\d+)">
+        {/* <Route exact path="/articles/detail/:articleId(\d+)">
           <ArticleDetail />
-          </Route>
+          </Route> */}
 
       <TaskProvider>
         <Route exact path="/tasks">
