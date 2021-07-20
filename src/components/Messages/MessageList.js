@@ -18,12 +18,13 @@ export const MessageList = () => {
             <h1>Messages</h1>
 
             <button onClick={() => history.push("/messages/create")}>
-                Please write a new message here
+                Click here to write a new message
             </button>
             <div className="messages">
             {
                 messages.map(message => {
-                return <MessageCard key={message.id} message={message} />
+                return <MessageCard key={message.id} 
+                message={message} />
                 })
             }
             </div>
