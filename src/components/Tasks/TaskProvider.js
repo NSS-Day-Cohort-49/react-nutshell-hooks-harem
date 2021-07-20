@@ -21,17 +21,37 @@ export const TaskProvider = (props) => {
         })
         .then(getTasks)
     }
-    /*
-        You return a context provider which has the
-        `tasks` state, `getTasks` function,
-        and the `addTask` function as keys. This
-        allows any child elements to access them.
-    */
+
+    const getTaskById = (id) => {
+        return fetch(`http://localhost:8088/tasks/${id}/?_expand=user`)
+        .then(res => res.json()) 
+    }
+
+    const deleteTask = id => {
+        return fetch(`http://localhost:8088/tasks/${id}`, {
+          method: "DELETE"
+        })
+          .then(getTasks)
+    }
+
+    const updateTask = task => {
+        return fetch(`http://localhost:8088/tasks/${task.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(task)
+        })
+          .then(getTasks)
+      }
+      
+
     return (
         <TaskContext.Provider value={{
-            tasks, getTasks, addTask
+            tasks, getTasks, addTask, getTaskById, deleteTask, updateTask
         }}>
             {props.children}
         </TaskContext.Provider>
     )
+
 }

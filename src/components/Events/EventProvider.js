@@ -13,6 +13,7 @@ export const EventProvider = (props) => {
         .then(res => res.json())
         .then(setEvents)
     }
+    
     const addEvent = eventObj => {
         return fetch("http://localhost:8088/events", {
             method: "POST",
@@ -23,12 +24,14 @@ export const EventProvider = (props) => {
         })
         .then(getEvents)
     }
+
     const releaseEvent = eventId => {
         return fetch(`http://localhost:8088/events/${eventId}`, {
           method: "DELETE"
         })
           .then(getEvents)
     }
+
     const updateEvent = (eventObj, eventId) => {
         return fetch(`http://localhost:8088/events/${eventId}`, {
           method: "PUT",

@@ -14,6 +14,7 @@ import { FriendForm } from "./Friends/FriendForm"
 import { TaskList } from "./Tasks/TaskList"
 import { TaskProvider } from "./Tasks/TaskProvider"
 import { TaskForm } from "./Tasks/TaskForm"
+import { TaskDetail } from "./Tasks/TaskDetail"
 
 export const ApplicationViews = () => {
   return (
@@ -37,6 +38,12 @@ export const ApplicationViews = () => {
           <TaskList />
         </Route>
         <Route path="/tasks_add">
+          <TaskForm></TaskForm>
+        </Route>
+        <Route path="/tasks/url/:taskId(\d+)">
+          <TaskDetail></TaskDetail>
+        </Route>
+        <Route path="/tasks/edit/:taskId(\d+)">
           <TaskForm></TaskForm>
         </Route>
       </TaskProvider>
