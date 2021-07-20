@@ -7,7 +7,7 @@ export const MessageList = () => {
 
     const { getMessages, messages } = useContext(MessageContext)
     const history = useHistory()
-
+    
     // Initialization effect hook -> Go get messages data
     useEffect(()=>{
         getMessages()
@@ -16,18 +16,18 @@ export const MessageList = () => {
     return (
         <>
             <h1>Messages</h1>
-
             <button onClick={() => history.push("/messages/create")}>
-                Click here to write a new message
+                Please write a new message here
             </button>
+            
             <div className="messages">
             {
                 messages.map(message => {
-                return <MessageCard key={message.id} 
-                message={message} />
+                return <MessageCard key={message.id} message={message} />
                 })
             }
             </div>
+
         </>
         )
     }

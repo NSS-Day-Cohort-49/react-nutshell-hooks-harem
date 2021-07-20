@@ -1,37 +1,36 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { MessageContext } from "./MessageProvider"
 
 
 export const MessageForm = () => {
-    const { addMessage, messages, getMessages } = useContext(MessageContext)
+    const { addMessage } = useContext(MessageContext)
     const history = useHistory()
-    
+    // const [isLoading, setIsLoading] = useState(true)
+
     const [message, setMessage] = useState({
-        userId: 0,
         body: "",
-        timeStamp: 0,
+        timestamp: 0
     });
     
-    useEffect(() => {
-        getMessages()
-    }, [])
+    // useEffect(() => {
+    //     setIsLoading(false)
+    //     getMessages()
+    // }, [])
     
-    const handleControlledInputChange = (event) => {
-        const newMessage = { ...messages }
+    const handleInputMessage = (event) => {
+        const newMessage = { ...message }
         newMessage[event.target.id] = event.target.value
         setMessage(newMessage)
     }
     
-    const saveMessage = (event) => {
+    const handleSaveMessage = (event) => {
         event.preventDefault()
-            
-        const userId = (message.userId)
 
             const newMessage = {
                 body: message.body,
-                userId: userId,
-                timeStamp: message.timeStamp,
+                userId: parseInt(sessionStorage.getItem("nutshell_user")),
+                timestamp: message.timestamp
         }
         addMessage(newMessage)
             .then(() => history.push("/messages"))
@@ -45,16 +44,16 @@ export const MessageForm = () => {
         <fieldset>
             <div className="form-group">
             <label htmlFor="textBody">Please write your message below</label>
-            <input type="text" id="textBody" required autoFocus className="form-control" placeholder="New message" value={message.body} onChange={handleControlledInputChange} />
+            <input type="text" id="body" required autoFocus className="form-control" placeholder="New message:" value={message.body} onChange={handleInputMessage} />
             </div>
         </fieldset>
         <fieldset>
             <div className="form-group">
             <label htmlFor="timestamp">Timestamp</label>
-            <input type="text" id="date" required autoFocus className="form-control" placeholder="Message timestamp" value={message.timeStamp} onChange={handleControlledInputChange} />
+            <input type="text" id="timestamp" required autoFocus className="form-control" placeholder="Message timestamp:" value={message.timeStamp} onChange={handleInputMessage} />
             </div>
         </fieldset>
-        <button className="btn btn-primary" onClick={saveMessage}>
+        <button className="btn btn-primary" onClick={handleSaveMessage}>
             Save Message
         </button>
         </form>

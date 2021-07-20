@@ -17,7 +17,7 @@ export const MessageProvider = (props) => {
     // res => res.json() is converting the response into json. Since it is returning another promise, we need to use another .then.
     // .then(setMessages) updates to the current state.
     const getMessages = () => {
-        return fetch("http://localhost:8088/messages")
+        return fetch("http://localhost:8088/messages?_expand=user")
         .then(res => res.json())
         .then(setMessages)
     }

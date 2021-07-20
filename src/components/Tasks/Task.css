@@ -1,0 +1,25 @@
+.tasks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .task {
+      flex-basis: 28%;
+      margin: 1em;
+      padding: 1em;
+      border: 1px solid goldenrod;
+  }
+  .clickMe {
+    margin: 1rem 0 2rem 2rem;
+    padding: 0.5rem;
+    background-color: #0d023f;
+    color: lightgoldenrodyellow;
+    font-size: 1rem;
+}
+.btn-primary {
+    margin: 1rem 0 2rem 2rem;
+    padding: 0.5rem;
+    background-color: #0d023f;
+    color: lightgoldenrodyellow;
+    font-size: 1rem;
+}

@@ -8,6 +8,13 @@ export const MessageDetail = () => {
     const history = useHistory()
     const {messageId} = useParams();
     
+    const deleteMessages = () => {
+        deleteMessage(message.id)
+            .then(() => {
+                history.push("/messages")
+            })
+    }
+    
     useEffect(() => {
         console.log("useEffect", messageId)
         getMessageById(messageId)
@@ -16,17 +23,11 @@ export const MessageDetail = () => {
         })
     }, [])
     
-    const deleteMessages = () => {
-        deleteMessage(message.id)
-            .then(() => {
-                history.push("/messages")
-            })
-    }
 
     return (
         <section className="message">
         <h3 className="message__body">{message.body}</h3>
-        <div className="message__user">user: {message.userId?.name}</div>
+        <div className="message__user">user: {message.user?.name}</div>
         <button onClick={deleteMessages}>Delete Message</button>
         </section>
     )
