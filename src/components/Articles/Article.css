@@ -11,7 +11,11 @@
       border: 1px solid goldenrod;
   }
 
-
+  .article__synopsis {
+      flex-basis: 250%;
+      margin: 1em;
+      padding: 1em;
+  }
  /* .miniMode {
     padding: 1rem;
     margin: 0 25%;
@@ -86,9 +90,9 @@
 /* .article__tagline {
     font-size: 1.0em;
     margin: 1em 0 0.5em 0;
-} */
-
-/* .article__remark {
+}
+ */ 
+/* /* .article__remark {
     font-size: 2em;
     margin: 1em 0 0.5em 0;
 }  */
