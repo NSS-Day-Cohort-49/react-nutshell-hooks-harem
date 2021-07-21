@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect,useState } from "react"
 import { useHistory } from 'react-router-dom';
 import { ArticleContext } from "./ArticleProvider"
 import { ArticleCard } from "./ArticleCard"
@@ -6,8 +6,11 @@ import "./Article.css"
 
 export const ArticleList = () => {
 
-    const { getArticles, articles } = useContext(ArticleContext)
+    const { articles, getArticles } = useContext(ArticleContext)
+    const [ filteredArticles, setFiltered ] = useState([])
     const history = useHistory()
+
+    console.log(filteredArticles)
 
     // Initialization effect hook -> Go get article data
     useEffect(()=>{

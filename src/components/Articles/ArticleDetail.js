@@ -1,14 +1,22 @@
 import React, { useContext, useEffect, useState } from "react"
 import { ArticleContext } from "./ArticleProvider"
 import "./Article.css"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 
 export const ArticleDetail = () => {
-  const { getArticleById } = useContext(ArticleContext)
+  const { getArticleById, deleteArticle } = useContext(ArticleContext)
 
 	const [article, setArticle] = useState({})
 
 	const {articleId} = useParams();
+  const history = useHistory()
+
+  // const handleRelease = () => {
+  //   deleteArticle(article.id)
+  //     .then(() => {
+  //       history.push("/articles")
+  //     })
+  // }
 
   useEffect(() => {
     console.log("useEffect", articleId)
@@ -22,8 +30,10 @@ export const ArticleDetail = () => {
     <section className="article">
       <h3 className="article__title">{article.title}</h3>
       <div className="article__synopsis">{article.synopsis}</div>
+      <div className="article__timestamp">{article.timestamp}</div>
+      {/* <button onClick={handleRelease}>Delete Article</button> */}
       {/* What's up with the question mark???? See below.*/}
-      <div className="article__url">Url: {article.url?.title}</div>
+      {/* <div className="article__url">Url: {article.url?.title}</div> */}
       {/* <div className="article__owner">Customer: {article.customer?.name}</div> */}
     </section>
   )
