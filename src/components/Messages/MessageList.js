@@ -16,7 +16,7 @@ export const MessageList = () => {
     return (
         <>
             <h1>Messages</h1>
-            <button onClick={() => history.push("/messages/create")}>
+            <button className="messageButton" onClick={() => history.push("/messages/create")}>
                 Please write a new message here
             </button>
             

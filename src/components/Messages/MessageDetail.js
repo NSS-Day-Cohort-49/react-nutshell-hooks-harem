@@ -26,8 +26,12 @@ export const MessageDetail = () => {
 
     return (
         <section className="message">
+            <h3 className="message_name">
+          {message.title}
+        </h3>
         <h3 className="message__body">{message.body}</h3>
         <div className="message__user">user: {message.user?.name}</div>
+        <div className="message_timeStamp">{message.timeStamp }</div>
         <button onClick={deleteMessages}>Delete Message</button>
         </section>
     )
