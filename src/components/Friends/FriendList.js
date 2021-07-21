@@ -1,17 +1,15 @@
-//author:JStewart / PROVIDES??
+//Joshua Stewart
+//This module populates 'Friends' page with list of friend objects (cards) and functionality for "Add Friend" button
 import { useHistory } from 'react-router-dom'
 import React, { useContext, useEffect } from "react"
 import { FriendContext } from "../Friends/FriendProvider"
 import { FriendCard } from "./Friends"
-// import { UserContext } from "./Users/UserProvider"
 import "./Friends.css"
 
 
 
 export const FriendList = () => {
     const { friends, getFriends } = useContext(FriendContext)
-    // const { users, getUsers} = useContext(UserContext)
-    // const [ filteredFriends, setFiltered ] = useState([])
     const history = useHistory()
     
    
@@ -20,14 +18,6 @@ export const FriendList = () => {
         getFriends()
     }, [])
 
-    // useEffect(() => {
-    //   if (searchTerms !== "") {
-    //     const subset = friends.filter(friend => friend.name.toLowerCase().includes (searchTerms))
-    //     setFiltered(subset)
-    //   } else {
-    //     setFiltered(friends)
-    //   }
-    //  }, [searchTerms, friends])
 
 return (
   <>
@@ -38,7 +28,7 @@ return (
     {console.log("FriendList: Render", friends)}
     {
       friends.map(friend => {
-        // const user = users.find(u => u.id === userId)
+       
         return <FriendCard 
           key={friend.id} 
           friend={friend}

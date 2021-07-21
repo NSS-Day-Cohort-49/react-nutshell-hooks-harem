@@ -1,4 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
+//Joshua Stewart
+//This module retrieves data and gives delete functionality / potential redundancy
+
 import { FriendContext } from "./Friends/FriendProvider"
 import { useParams, useHistory } from "react-router-dom"
 import "./Friends.css"

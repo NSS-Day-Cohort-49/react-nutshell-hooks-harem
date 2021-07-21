@@ -1,3 +1,6 @@
+//Joshua Stewart
+// This module provides context so that other modules can interact with referenced data within the json
+
 import React, { useState, createContext } from "react"
 
 export const FriendContext = createContext()

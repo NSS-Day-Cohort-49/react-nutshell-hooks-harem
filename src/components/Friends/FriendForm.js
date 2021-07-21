@@ -1,3 +1,5 @@
+//Joshua Stewart
+//This module creates a form for users to add friends to friends list and updates state/re-renders based on field changes
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory } from 'react-router-dom';
 import { FriendContext } from "../Friends/FriendProvider"
@@ -18,8 +20,7 @@ export const FriendForm = () => {
   });
 
  
-  //when a field changes, update state. The return will re-render and display based on the values in state
-  //Controlled component
+
   const handleControlledInputChange = (event) => {
     /* When changing a state object or array,
     always create a copy, make changes, and then set state.*/
