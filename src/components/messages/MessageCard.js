@@ -8,6 +8,7 @@ export const MessageCard = ({ message }) =>{
   const { deleteMessage } = useContext(MessageContext)
   const [isClicked, setIsClicked] = useState(false);
   const history = useHistory()
+  
   const handleRelease = () => {
   deleteMessage(message.id)
     .then(() => {
@@ -21,7 +22,9 @@ return (
         <h2 className="user_name">
           <h3
             onClick={() => setIsClicked(true)}>
-          {message.user?.name}
+            <Link to={"/messages"}>
+              {message.user?.name}
+            </Link>
           </h3>
           {isClicked && (
             <button>

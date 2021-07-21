@@ -29,3 +29,6 @@ This module is responsible for styling MessageCard.js */
     color: rgb(0, 0, 0);  
  }
 
+.user_name {
+    color:cornflowerblue;
+}
