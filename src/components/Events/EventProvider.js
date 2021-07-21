@@ -47,8 +47,8 @@ export const EventProvider = (props) => {
 
     /*
         You return a context provider which has the
-        `animals` state, `getAnimals` function,
-        and the `addAnimal` function as keys. This
+        `events` state, `getEvents` function,
+        and the `addEvent` function as keys. This
         allows any child elements to access them.
     */
         return (
