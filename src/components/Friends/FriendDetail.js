@@ -1,32 +1,33 @@
 import React, { useContext, useEffect, useState } from "react"
-import { UserContext } from "./Users/UserProvider"
+//Joshua Stewart
+//This module retrieves data and gives delete functionality / potential redundancy
+
 import { FriendContext } from "./Friends/FriendProvider"
 import { useParams, useHistory } from "react-router-dom"
 import "./Friends.css"
 
 export const FriendDetail = () => {
-    const { getUserById } = useContext(UserContext)
-    const { removeFriend } = useContext(FriendContext)
-//TODO:create removeFriend on FriendProvider
+    const { getFriendById, removeFriend } = useContext(FriendContext)
+
     const [friend, setFriend] = useState({})
 
 	const {friendId} = useParams();
     const history = useHistory()
 
+    const handleRemove = () => {
+      removeFriend(friendId)
+      .then(() =>{
+            history.push("/friends")
+      })
+    }
+
   useEffect(() => {
     console.log("useEffect", friendId)
-    getUserById(friendId)
+    getFriendById(friendId)
     .then((response) => {
       setFriend(response)
     })
     }, [])
-
-    const handleRemove = () => {
-        removeFriend(friend.id)
-        .then(() => {
-            history.push("/friends")
-        })
-    }
 
   return (
     <section className="friend">

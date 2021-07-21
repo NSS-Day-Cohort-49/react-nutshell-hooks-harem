@@ -11,6 +11,7 @@ import { EventDetail } from "./Events/EventDetail"
 import { FriendProvider } from "./Friends/FriendProvider"
 import { FriendList } from "./Friends/FriendList"
 import { FriendForm } from "./Friends/FriendForm"
+import { UserProvider } from "./Users/UserProvider"
 import { MessageProvider } from "./Messages/MessageProvider"
 import { MessageList } from "./Messages/MessageList"
 import { MessageForm } from "./Messages/MessageForm"
@@ -49,12 +50,16 @@ export const ApplicationViews = () => {
 
       {/* <Route path="/friends">
         Render the component for list of friends */}
-      <Route exact path="/friends">
-        <FriendList />
-      </Route>
-      <Route path="/friends/create">
-        <FriendForm />
-      </Route>
+    <FriendProvider>
+      <UserProvider>
+        <Route exact path="/friends">
+          <FriendList />
+        </Route>
+        <Route path="/friends/create">
+          <FriendForm />
+        </Route>
+      </UserProvider>
+    </FriendProvider>
     
       <Route exact path="/messages">
         <MessageList />
