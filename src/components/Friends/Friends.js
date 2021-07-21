@@ -1,5 +1,5 @@
 //Joshua Stewart
-//This module creates a human readable format that will present json data within the webpage / creates functionality to remove friends from list
+//This module presents json data from 'friends' array within the webpage / creates functionality to remove friends from list
 import { FriendContext } from "./FriendProvider"
 import { useHistory } from "react-router-dom"
 import React, { useContext } from "react"

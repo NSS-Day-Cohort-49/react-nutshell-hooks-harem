@@ -7,9 +7,7 @@ export const FriendContext = createContext()
 
 export const FriendProvider = (props) => {
     const [friends, setFriends] = useState([])
-    // const [ searchTerms, setSearchTerms ] = useState("")
-
-    // searchTerms function to be referenced later?
+    
 
     const getFriends = () => {
         return fetch("http://localhost:8088/friends?_expand=user")

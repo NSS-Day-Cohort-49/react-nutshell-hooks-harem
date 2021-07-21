@@ -26,8 +26,9 @@ This module is responsible for styling MessageCard.js */
     margin: 0 auto;
     margin-top: 40px;
     text-align: center;
-    color: rgb(0, 0, 0);
-  
+    color: rgb(0, 0, 0);  
  }
- 
 
+.user_name {
+    color:cornflowerblue;
+}
