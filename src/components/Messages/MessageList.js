@@ -1,3 +1,6 @@
+// Matt Xiong
+// This component is responsible for displaying all of the messages. It also allows users to create a new message which redirects them to MessageForm.
+
 import React, { useContext, useEffect } from "react"
 import { useHistory } from 'react-router-dom';
 import { MessageContext } from "./MessageProvider"
@@ -17,7 +20,7 @@ export const MessageList = () => {
         <>
             <h1>Messages</h1>
             <button className="messageButton" onClick={() => history.push("/messages/create")}>
-                Please write a new message here
+                Please click here to write a new message
             </button>
             
             <div className="messages">
