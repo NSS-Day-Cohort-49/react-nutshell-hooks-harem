@@ -8,13 +8,13 @@ export const ArticleProvider = (props) => {
     const [articles, setArticles] = useState([])
 
     const getArticles = () => {
-        return fetch("http://localhost:8088/articles?_expand=title")
+        return fetch("http://localhost:8088/articles?_expand=user")
         .then(res => res.json())
         .then(setArticles)
     }
 
     const getArticleById = (id) => {
-        return fetch(`http://localhost:8088/articles/${id}?_expand=title`)
+        return fetch(`http://localhost:8088/articles/${id}?_expand=user`)
         .then(res => res.json()) // note we don't set anything on state here. Why?
     }
 
