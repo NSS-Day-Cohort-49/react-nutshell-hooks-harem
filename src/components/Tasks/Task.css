@@ -23,3 +23,11 @@
     color: lightgoldenrodyellow;
     font-size: 1rem;
 }
+
+.delete_button {
+    margin: 1rem 0 2rem 2rem;
+    padding: 0.5rem;
+    background-color: #e62e0e;
+    color: lightgoldenrodyellow;
+    font-size: 1rem;
+}
