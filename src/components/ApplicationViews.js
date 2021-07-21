@@ -11,6 +11,10 @@ import { EventDetail } from "./Events/EventDetail"
 import { FriendProvider } from "./Friends/FriendProvider"
 import { FriendList } from "./Friends/FriendList"
 import { FriendForm } from "./Friends/FriendForm"
+import { MessageProvider } from "./Messages/MessageProvider"
+import { MessageList } from "./Messages/MessageList"
+import { MessageForm } from "./Messages/MessageForm"
+import { MessageDetail } from "./Messages/MessageDetail"
 import { TaskList } from "./Tasks/TaskList"
 import { TaskProvider } from "./Tasks/TaskProvider"
 import { TaskForm } from "./Tasks/TaskForm"
@@ -20,6 +24,8 @@ export const ApplicationViews = () => {
   <>
       <EventProvider>
       <ArticleProvider>
+      <FriendProvider>
+      <MessageProvider>
        
       <Route exact path="/articles">
         <ArticleList />
@@ -43,18 +49,23 @@ export const ApplicationViews = () => {
 
       {/* <Route path="/friends">
         Render the component for list of friends */}
-    <FriendProvider>
       <Route exact path="/friends">
         <FriendList />
       </Route>
       <Route path="/friends/create">
         <FriendForm />
       </Route>
-    </FriendProvider>
     
-      <Route path="/messages">
-        {/* Render the component for the messages */}
+      <Route exact path="/messages">
+        <MessageList />
       </Route>
+      <Route path="/messages/create">
+        <MessageForm />
+      </Route>  
+      <Route path="/messages/detail/messageId(\d+)">
+        <MessageDetail />
+      </Route>
+
       <Route exact path="/tasks">
         {/* Render the component for the user's tasks */}
       </Route>
@@ -70,6 +81,9 @@ export const ApplicationViews = () => {
       <Route exact path="/events/detail/:eventId(\d+)">
         <EventDetail />
       </Route>
+      
+      </MessageProvider>
+      </FriendProvider>
       </ArticleProvider>
       </EventProvider>
 
