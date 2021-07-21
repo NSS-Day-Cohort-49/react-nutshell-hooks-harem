@@ -25,8 +25,8 @@ return (
           </a>
         </h3>
         <div className="article__synopsis">{article.synopsis }</div>
-        {/* <div>Posted by: {article.name} on {article.timestamp }</div> */}
-        <div className="article__timestamp">{article.timestamp }</div>     
+        <div>Posted by: {article.user.name} on {article.timestamp }</div>
+        {/* <div className="article__timestamp">{article.timestamp }</div>      */}
         <button onClick={handleRelease}>Delete Article</button>
     </section>
     
