@@ -4,6 +4,7 @@ import "./Article.css"
 import { Link } from "react-router-dom"
 import { ArticleContext } from "./ArticleProvider"
 import { useHistory } from "react-router-dom"
+import userEvent from "@testing-library/user-event"
 
 export const ArticleCard = ({ article }) =>{
   const { deleteArticle } = useContext(ArticleContext)
@@ -24,7 +25,8 @@ return (
           </a>
         </h3>
         <div className="article__synopsis">{article.synopsis }</div>
-        <div className="article__timestamp">{article.timestamp }</div>     
+        <div>Posted by: {article.user.name} on {article.timestamp }</div>
+        {/* <div className="article__timestamp">{article.timestamp }</div>      */}
         <button onClick={handleRelease}>Delete Article</button>
     </section>
     
