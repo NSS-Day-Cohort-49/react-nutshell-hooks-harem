@@ -24,7 +24,8 @@ return (
           {message.user?.name}
           </h3>
           {isClicked && (
-            <button> Add to Friend List? </button>
+            <button>
+            Add to Friend List? </button>
           )}
         </h2>
         <h3 className="message_name">{message.title }</h3>
