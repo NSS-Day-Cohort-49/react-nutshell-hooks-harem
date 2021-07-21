@@ -16,7 +16,7 @@ export const FriendProvider = (props) => {
 
 
     const addFriend = friendObj => {
-        return fetch("http://localhost:8088/friends?_expand=user", {
+        return fetch("http://localhost:8088/friends", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -27,7 +27,7 @@ export const FriendProvider = (props) => {
     }
 
     const getFriendById = (id) => {
-        return fetch(`http://localhost:8088/friends/${id}?_expand=users`)
+        return fetch(`http://localhost:8088/friends/${id}/?_expand=users`)
         .then(res => res.json())
     }
 

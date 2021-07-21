@@ -1,17 +1,20 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useHistory } from 'react-router-dom';
 import { FriendContext } from "../Friends/FriendProvider"
+import { UserContext } from "../Users/UserProvider"
 import "./Friends.css"
 
 export const FriendForm = () => {
   const { addFriend } = useContext(FriendContext)
+  const { users, getUsers } = useContext(UserContext)
   const history = useHistory()
+  
+  useEffect(() => {
+    getUsers()
+  }, [])
 
   const [friend, setFriend] = useState({
-    name: "",
-    email: "",
-    eventId: 0,
-    articleId: 0
+    name: ""
   });
 
  
@@ -29,13 +32,14 @@ export const FriendForm = () => {
 
   const handleClickSaveFriend = (event) => {
     event.preventDefault() //Prevents the browser from submitting the form
-       
-
+      
+      const matchingUser = users.find((user) => {
+        return user.name === friend.name
+      })
       const newFriend = {
-        name: friend.name,
-        email: friend.email,
-        articleId: friend.articleId,
-        eventId: friend.eventId
+        currentUserId: parseInt(sessionStorage.getItem("nutshell_user")),
+        userId: matchingUser.id
+        
       }
       addFriend(newFriend)
         .then(() => history.push("/friends"))
