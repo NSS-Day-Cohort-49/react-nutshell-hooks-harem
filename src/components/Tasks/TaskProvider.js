@@ -34,7 +34,7 @@ export const TaskProvider = (props) => {
           .then(getTasks)
     }
 
-    const updateTask = task => {
+    const updateTask = (task) => {
         return fetch(`http://localhost:8088/tasks/${task.id}`, {
           method: "PUT",
           headers: {
@@ -44,7 +44,6 @@ export const TaskProvider = (props) => {
         })
           .then(getTasks)
       }
-      
 
     return (
         <TaskContext.Provider value={{
