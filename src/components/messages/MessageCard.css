@@ -1,0 +1,33 @@
+/* Module created by Matt Xiong
+
+This module is responsible for styling MessageCard.js */
+
+.message {
+    display: flex;
+    height: 200px; /* or any value */
+    overflow-y: auto;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-basis: 30%;
+    margin: 1em;
+    padding: 1em;
+    border: 6px solid rgb(0, 0, 0);
+    width: 300px;
+}
+
+.message_name {
+    text-align: center;
+}
+
+.deleteButton {
+    position: relative;
+    width: 150px; height: 60px;
+    margin: 0 auto;
+    margin-top: 40px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+  
+ }
+ 
+

@@ -6,7 +6,7 @@ import "./Events.css"
 export const EventForm = () => {
     const { addEvent, updateEvent } = useContext(EventContext)
 
-    //for edit, hold on to state of animal in this view
+    //for edit, hold on to state of eventObj in this view
     const [eventObj, setEvent] = useState({})
     //wait for data before button is active
     const [isLoading, setIsLoading] = useState(false);
@@ -17,10 +17,9 @@ export const EventForm = () => {
     //when field changes, update state. This causes a re-render and updates the view.
     //Controlled component
     const handleControlledInputChange = (event) => {
-      //When changing a state object or array,
-      //always create a copy make changes, and then set state.
+      
       const newEvent = { ...eventObj }
-      //animal is an object with properties.
+      //event is an object with properties.
       //set the property to the new value
       newEvent[event.target.id] = event.target.value
       //update state
