@@ -1,7 +1,7 @@
 import React from "react"
 import "./Events.css"
 import { Link } from "react-router-dom"
-
+//this renders the events one by one
 export const EventCard = ({ event }) => (
     <section className="event">
         <h3 className="event__name">
