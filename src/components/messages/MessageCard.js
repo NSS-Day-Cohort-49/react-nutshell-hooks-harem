@@ -1,3 +1,6 @@
+// Matt Xiong
+// This component is responsible for providing all the data needed in order to display in MessageList.
+
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { MessageContext } from "./MessageProvider"

@@ -1,3 +1,6 @@
+// Matt Xiong
+// This component is responsible for allowing users to create a new message.
+
 import React, { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { MessageContext } from "./MessageProvider"
@@ -45,7 +48,7 @@ export const MessageForm = () => {
         <h2 className="messageForm_header">New Message</h2>
         <fieldset>
             <div className="form-group">
-            <label htmlFor="textTitle">Please write the title message below: </label>
+            <label htmlFor="textTitle">Please write the title of your message below: </label>
             <input type="text" id="title" required autoFocus className="form-control" placeholder="Title" value={message.title} onChange={handleInputMessage} />
             </div>
         </fieldset>
